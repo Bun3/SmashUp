@@ -131,7 +131,7 @@ namespace Zero
             Singleton.game.character.Animator.SetBool("bDeath", false);
         }
 
-        #region Dont use other CS only use here
+        #region Dont use other CS, Only use here
 
         private IEnumerator ISpawnObject(float waitTime = 0.0f)
         {
@@ -287,7 +287,6 @@ namespace Zero
             byte col = 150;
             while (timer <= setTime)
             {
-                //popCmd.Image.color = Color.white * Mathf.Lerp(1, 0, timer / setTime);
                 popCmd.Image.color = new Color32(col, col, col, (byte)Mathf.Lerp(255, 0, timer / setTime));
                 popCmd.Rect.localScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.5f, timer / setTime);
 

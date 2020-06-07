@@ -14,7 +14,7 @@ namespace Zero
         [SerializeField]
         private float targetPosY = 0;
 
-        private InGame gameScene;
+        private static InGame gameScene = null;
 
         private void Awake()
         {
@@ -28,7 +28,7 @@ namespace Zero
                 pieces[i].Sprite.sortingOrder = 1;
             }
 
-            gameScene = GameObject.FindGameObjectWithTag("InGame").GetComponent<InGame>();
+            if (gameScene == null) gameScene = GameObject.FindGameObjectWithTag("InGame").GetComponent<InGame>();
 
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("FallObject"), LayerMask.NameToLayer("FallObject"), true);
         }
@@ -55,20 +55,7 @@ namespace Zero
 
         private IEnumerator IDropObject()
         {
-            float endTime = 0.2f;
-            float timer = 0f;
-
-            Vector2 startPos = transform.position;
-
-            while (timer <= endTime)
-            {
-                transform.position = Vector2.Lerp(startPos, new Vector2(0, targetPosY), timer / endTime);
-                timer += Time.smoothDeltaTime;
-
-                yield return null;
-            }
-
-            transform.position = new Vector2(0, targetPosY);
+            StartCoroutine(ISetPositionAtTime(transform, new Vector2(0, targetPosY), 0.2f));
 
             Singleton.command.StartInputTime();
             StartCoroutine(gameScene.ITimeCheck());
@@ -79,7 +66,24 @@ namespace Zero
                 pieces[i].Body.bodyType = RigidbodyType2D.Dynamic;
                 pieces[i].Body.gravityScale = 0.01f;
             }
+            yield break;
+        }
+        private IEnumerator ISetPositionAtTime(Transform ts, Vector2 targetPos, float endTime)
+        {
+            Vector2 startPos = ts.position;
+            float timer = 0f;
 
+            while (timer <= endTime)
+            {
+                ts.position = Vector2.Lerp(startPos, targetPos, timer / endTime);
+                timer += Time.smoothDeltaTime;
+
+                yield return null;
+            }
+
+            ts.position = targetPos;
+
+            yield break;
         }
 
         public IEnumerator IFail()
