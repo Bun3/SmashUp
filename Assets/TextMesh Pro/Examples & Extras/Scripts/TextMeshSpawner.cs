@@ -15,11 +15,6 @@ namespace TMPro.Examples
 
         private TextMeshProFloatingText floatingText_Script;
 
-        void Awake()
-        {
-
-        }
-
         void Start()
         {
 

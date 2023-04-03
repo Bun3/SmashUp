@@ -8,7 +8,7 @@ namespace Zero
 
     public class NoAdButton : CustomButton
     {
-        private IAPButton iap;
+        private IAPButton iap = null;
 
         private void Awake()
         {
@@ -20,6 +20,7 @@ namespace Zero
         public void OnCompleted(Product product)
         {
             DataManager.GameData.HasNoAdItem = true;
+            iap.gameObject.SetActive(!DataManager.GameData.HasNoAdItem);
         }
 
         public void OnFailed(Product product, PurchaseFailureReason reason)

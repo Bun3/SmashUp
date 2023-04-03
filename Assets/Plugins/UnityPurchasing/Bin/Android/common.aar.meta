@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3419c00222876481ca0d7314c37dad87
+guid: 2074b680f6a11f646a5f8c602d0e565b
 timeCreated: 1444211128
 licenseType: Pro
 PluginImporter:
@@ -18,6 +18,6 @@ PluginImporter:
       enabled: 0
       settings:
         DefaultValueInitialized: true
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:

@@ -48,7 +48,7 @@ namespace Zero
 
         private void OnPreCull()
         {
-            if (Application.isEditor) return;
+            //if (Application.isEditor) return;
             Rect camRect = cam.rect;
             Rect nr = new Rect(0, 0, 1, 1);
 
@@ -56,6 +56,18 @@ namespace Zero
             GL.Clear(true, true, Color.black);
             cam.rect = camRect;
         }
+
+        private void OnPreRender()
+        {
+            //if (Application.isEditor) return;
+            Rect camRect = cam.rect;
+            Rect nr = new Rect(0, 0, 1, 1);
+
+            cam.rect = nr;
+            GL.Clear(true, true, Color.black);
+            cam.rect = camRect;
+        }
+
     }
 
 }

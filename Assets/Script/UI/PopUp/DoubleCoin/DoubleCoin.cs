@@ -22,6 +22,8 @@ namespace Zero
             int coin = beforeCoin;
             int totalUpCoin = afterCoin - beforeCoin;
 
+            Singleton.sound.Play("CoinReward");
+
             coinText.text = coin.ToString();
 
             if (totalUpCoin <= 0) { isDone = true; Destroy(gameObject); yield break; }

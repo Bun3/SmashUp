@@ -27,7 +27,7 @@ namespace Zero
             clips.Add("De", Load("D"));
             clips.Add("Explosion", Load("Explosion"));
             clips.Add("Fall", Load("Fall"));
-
+            clips.Add("CoinReward", Load("CoinReward"));
         }
 
         private void Start()

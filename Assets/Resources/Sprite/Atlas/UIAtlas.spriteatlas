@@ -103,9 +103,6 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 3de4f09e12438334db312f402f9c1999, type: 3}
     totalSpriteSurfaceArea: 1989660
     bindAsDefault: 1
-    storedHash:
-      serializedVersion: 2
-      Hash: ee62e5519f9c29bacf5b7003338740ff
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 40c7cde0116cab7438a76b8f35408ac1, type: 3}

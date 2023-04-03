@@ -48,13 +48,13 @@ namespace Zero
 
         private Coroutine c_FeverGaugeUpdate = null;
 
-        [SerializeField]
-        private InputButton[] inputButtons = null;
+        //[SerializeField]
+        //private InputButton[] inputButtons = null;
 
         private const float m_feverCalculationVal = 0.01f;
 
         private const int m_dis = 200;
-        private const float m_feverUpValue = 10f * m_feverCalculationVal;
+        private const float m_feverUpValue = 1f * m_feverCalculationVal;
         private const float m_inputTime = 4f;
         private const float m_feverDownFlow = 0.5f * m_feverCalculationVal;
         private const float m_maxFeverValue = 100f * m_feverCalculationVal;
@@ -378,9 +378,6 @@ namespace Zero
         }
 
         #endregion
-
-        public void DownOnFeverMode() => inputButtons[Singleton.command.PatternQ.Peek() - 1].Down();
-        public void UpOnFeverMode() => inputButtons[Singleton.command.PatternQ.Peek() - 1].Up();
 
         public void ClickOnFeverMode()
         {
